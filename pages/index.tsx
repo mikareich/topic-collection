@@ -1,7 +1,9 @@
+import "tailwindcss/tailwind.css";
+
 import React from "react";
 
-function Home() {
+function Index() {
   return <div />;
 }
 
-export default Home;
+export default Index;
