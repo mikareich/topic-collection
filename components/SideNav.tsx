@@ -10,7 +10,7 @@ function SideNav({ description, content }: Collection) {
     <div className="text-sm flex flex-col h-screen -mt-24 pt-24">
       <input
         type="search"
-        placeholder="Suche auf dieser Seite"
+        placeholder="Suche auf dieser Seite (/)"
         className="p-2 w-full border-b border-gray-300 transition focus:border-gray-500 outline-none"
       />
 
