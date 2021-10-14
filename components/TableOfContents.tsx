@@ -1,6 +1,5 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
-import React, { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
+import React, { useState } from "react";
 
 import generateToc from "../utils/generateToc";
 import Link from "./Link";
