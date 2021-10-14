@@ -6,6 +6,7 @@ import {
 import React from "react";
 
 import ContentRenderer from "../components/ContentRenderer";
+import ProgressBar from "../components/ProgressBar";
 import SideNav from "../components/SideNav";
 import {
   Collection as CollectionProps,
@@ -15,16 +16,19 @@ import {
 
 function Collection({ content, ...collection }: CollectionProps) {
   return (
-    <div className="xl:p-12 lg:p-10 p-8 justify-center min-h-screen flex">
-      <div className="prose container lg:mr-10 break-words">
-        <ContentRenderer content={content} />
-      </div>
-      <aside className="xl:w-64 lg:w-52 lg:block hidden relative">
-        <div className="xl:w-64 lg:w-52 lg:block hidden fixed">
-          <SideNav {...{ content, ...collection }} />
+    <>
+      <ProgressBar />
+      <div className="xl:p-12 lg:p-10 p-8 justify-center min-h-screen flex">
+        <div className="prose container lg:mr-10 break-words">
+          <ContentRenderer content={content} />
         </div>
-      </aside>
-    </div>
+        <aside className="xl:w-64 lg:w-52 lg:block hidden relative">
+          <div className="xl:w-64 lg:w-52 lg:block hidden fixed">
+            <SideNav {...{ content, ...collection }} />
+          </div>
+        </aside>
+      </div>
+    </>
   );
 }
 
