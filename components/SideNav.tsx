@@ -22,6 +22,7 @@ function SideNav({ description, content }: Collection) {
       <h2 className="uppercase font-semibold tracking-wide mb-2 mt-8">
         Auf dieser Seite
       </h2>
+
       <TableOfContents content={content} />
 
       <div className="m-auto mb-0">
