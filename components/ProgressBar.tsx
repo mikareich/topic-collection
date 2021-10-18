@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+
+import { colorState } from "../utils/atoms";
 
 function ProgressBar() {
   const [progress, setProgress] = useState(0);
+  const color = useRecoilValue(colorState);
 
   const calculateProgress = () => {
     const scrollTop = window.scrollY;
@@ -16,9 +20,9 @@ function ProgressBar() {
 
   return (
     <div className="h-2">
-      <div className="fixed w-full bg-blue-100 h-2 mb-2">
+      <div className={`fixed w-full bg-${color}-100 h-2 mb-2`}>
         <div
-          className="w-1/3 h-2 bg-blue-500 transition"
+          className={`h-2 bg-${color}-500 transition`}
           style={{ width: `${progress * 100}%` }}
         />
       </div>

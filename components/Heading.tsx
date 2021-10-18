@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, useEffect, useRef, useState } from "react";
 import { useSetRecoilState } from "recoil";
 
-import headingsState from "../utils/atoms";
+import { headingsState } from "../utils/atoms";
 
 interface HeadingProps {
   level: number;

@@ -2,13 +2,32 @@ import * as fs from "fs";
 import matter from "gray-matter";
 import * as path from "path";
 
+export type CollectionColor =
+  | "red"
+  | "yellow"
+  | "green"
+  | "blue"
+  | "indigo"
+  | "purple"
+  | "pink";
+
+const allColors: CollectionColor[] = [
+  "red",
+  "yellow",
+  "green",
+  "blue",
+  "indigo",
+  "purple",
+  "pink",
+];
+
 export interface Collection {
   slug: string;
   title: string;
   author: string;
   description: string;
   date: string;
-  color: "red" | "yellow" | "green" | "blue" | "indigo" | "pruple" | "pink";
+  color: CollectionColor;
   content: string;
 }
 
@@ -31,7 +50,7 @@ export function getCollection(slug: string): Collection {
     description: data.description,
     date: new Date(data.date).toLocaleDateString(),
     content,
-    color: data.color || "blue",
+    color: allColors.includes(data?.color) ? data.color : "blue",
   };
 }
 

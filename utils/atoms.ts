@@ -1,8 +1,13 @@
 import { atom } from "recoil";
 
-const headingsState = atom<HTMLHeadingElement[]>({
+import { CollectionColor } from "./collections";
+
+export const headingsState = atom<HTMLHeadingElement[]>({
   key: "position",
   default: [],
 });
 
-export default headingsState;
+export const colorState = atom<CollectionColor>({
+  key: "color",
+  default: "blue",
+});

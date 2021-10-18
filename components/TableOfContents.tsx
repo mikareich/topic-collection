@@ -2,7 +2,7 @@ import { ArrowRightIcon } from "@heroicons/react/solid";
 import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 
-import headingsState from "../utils/atoms";
+import { headingsState } from "../utils/atoms";
 import generateToc from "../utils/generateToc";
 import Link from "./Link";
 

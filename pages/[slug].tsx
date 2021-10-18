@@ -3,28 +3,36 @@ import {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from "next";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSetRecoilState } from "recoil";
 
 import ContentRenderer from "../components/ContentRenderer";
 import ProgressBar from "../components/ProgressBar";
 import SideNav from "../components/SideNav";
+import { colorState } from "../utils/atoms";
 import {
   Collection as CollectionProps,
   getCollection,
   getCollections,
 } from "../utils/collections";
 
-function Collection({ content, ...collection }: CollectionProps) {
+function Collection({ content, color, ...collection }: CollectionProps) {
+  const setColor = useSetRecoilState(colorState);
+
+  useEffect(() => setColor(color), []);
+
   return (
     <>
       <ProgressBar />
       <div className="xl:p-12 lg:p-10 p-8 justify-center min-h-screen flex">
-        <div className="container lg:mr-10 prose-blue prose xs:prose-s break-words">
+        <div
+          className={`container lg:mr-10 prose-${color} prose xs:prose-s break-words`}
+        >
           <ContentRenderer content={content} />
         </div>
         <aside className="xl:w-64 lg:w-52 lg:block hidden relative">
           <div className="xl:w-64 lg:w-52 lg:block hidden fixed">
-            <SideNav {...{ content, ...collection }} />
+            <SideNav {...{ content, color, ...collection }} />
           </div>
         </aside>
       </div>
