@@ -8,6 +8,7 @@ export interface Collection {
   author: string;
   description: string;
   date: string;
+  color: "red" | "yellow" | "green" | "blue" | "indigo" | "pruple" | "pink";
   content: string;
 }
 
@@ -30,6 +31,7 @@ export function getCollection(slug: string): Collection {
     description: data.description,
     date: new Date(data.date).toLocaleDateString(),
     content,
+    color: data.color || "blue",
   };
 }
 

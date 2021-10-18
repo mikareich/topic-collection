@@ -5,7 +5,7 @@ import mdToc from "markdown-toc-unlazy";
 interface Toc {
   level: number;
   title: string;
-  slug: string;
+  id: string;
 }
 
 interface mdTocProps {
@@ -26,7 +26,7 @@ function generateToc(md: string): Array<Toc> {
   const parseToc = ({ lvl, content }: mdTocProps): Toc => ({
     level: lvl,
     title: content,
-    slug: encodeURI(slugger.slug(content)),
+    id: encodeURI(slugger.slug(content)),
   });
 
   const toc = mdToc(md).json.map(parseToc);

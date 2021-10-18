@@ -5,6 +5,7 @@ import { NormalComponents } from "react-markdown/lib/complex-types";
 import remarkGfm from "remark-gfm";
 import remarkSlug from "remark-slug";
 
+import Heading from "./Heading";
 import Link from "./Link";
 
 interface ContentRendererProps {
@@ -12,49 +13,20 @@ interface ContentRendererProps {
 }
 
 function ContentRenderer({ content }: ContentRendererProps) {
-  interface HeadingProps {
-    children: React.ReactNode | React.ReactNode[];
-    id: string;
-  }
-
   const components: Partial<NormalComponents & SpecialComponents> = {
     a: ({ children, href }) => <Link href={href!}>{children}</Link>,
     // @ts-ignore
-    h1: ({ children, id }: HeadingProps) => (
-      <h1 id={encodeURI(id)} className="pt-12">
-        {children}
-      </h1>
-    ),
+    h1: Heading,
     // @ts-ignore
-    h2: ({ children, id }: HeadingProps) => (
-      <h2 id={encodeURI(id)} className="pt-12">
-        {children}
-      </h2>
-    ),
+    h2: Heading,
     // @ts-ignore
-    h3: ({ children, id }: HeadingProps) => (
-      <h3 id={encodeURI(id)} className="pt-12">
-        {children}
-      </h3>
-    ),
+    h3: Heading,
     // @ts-ignore
-    h4: ({ children, id }: HeadingProps) => (
-      <h4 id={encodeURI(id)} className="pt-12">
-        {children}
-      </h4>
-    ),
+    h4: Heading,
     // @ts-ignore
-    h5: ({ children, id }: HeadingProps) => (
-      <h5 id={encodeURI(id)} className="pt-12">
-        {children}
-      </h5>
-    ),
+    h5: Heading,
     // @ts-ignore
-    h6: ({ children, id }: HeadingProps) => (
-      <h6 id={encodeURI(id)} className="pt-12">
-        {children}
-      </h6>
-    ),
+    h6: Heading,
   };
 
   return (
