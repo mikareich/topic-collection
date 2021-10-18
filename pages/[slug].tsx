@@ -16,7 +16,7 @@ import {
   getCollections,
 } from "../utils/collections";
 
-function Collection({ content, color, ...collection }: CollectionProps) {
+function Collection({ content, color, author, description }: CollectionProps) {
   const setColor = useSetRecoilState(colorState);
 
   useEffect(() => setColor(color), []);
@@ -29,10 +29,13 @@ function Collection({ content, color, ...collection }: CollectionProps) {
           className={`container lg:mr-10 prose-${color} prose xs:prose-s break-words`}
         >
           <ContentRenderer content={content} />
+          <div className="text-center text-gray-500 italic text-sm mt-1">
+            {author}
+          </div>
         </div>
         <aside className="xl:w-64 lg:w-52 lg:block hidden relative">
           <div className="xl:w-64 lg:w-52 lg:block hidden fixed">
-            <SideNav {...{ content, color, ...collection }} />
+            <SideNav content={content} description={description} />
           </div>
         </aside>
       </div>
