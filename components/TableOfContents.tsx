@@ -35,10 +35,10 @@ function TableOfContents({ content }: TableOfContentsProps) {
             currentScrollPosition < nextHeading?.offsetTop) ||
           // Last heading (no next heading)
           (headingIndex === headings.length - 1 &&
-            heading?.offsetTop <= currentScrollPosition) ||
+            heading?.offsetTop < currentScrollPosition) ||
           // Scroll position between current and next heading
           (heading?.offsetTop <= currentScrollPosition &&
-            currentScrollPosition <= nextHeading?.offsetTop);
+            currentScrollPosition < nextHeading?.offsetTop);
 
         return (
           <li className="my-4" key={id}>
