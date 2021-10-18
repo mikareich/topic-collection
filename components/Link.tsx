@@ -20,6 +20,7 @@ function Link({
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a
         href="#"
+        style={{ textDecoration: "none" }}
         className={`text-gray-500 hover:text-${color}-500 transition 
                     ${active && `text-${color}-500`}`}
       >
