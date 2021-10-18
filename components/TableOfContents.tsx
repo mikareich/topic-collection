@@ -16,10 +16,7 @@ function TableOfContents({ content }: TableOfContentsProps) {
 
   const headings = useRecoilValue(headingsState);
 
-  const updatePosition = () =>
-    setCurrentScrollPosition(
-      window.scrollY + document.documentElement.clientHeight / 2
-    );
+  const updatePosition = () => setCurrentScrollPosition(window.scrollY);
 
   useEffect(() => {
     window.addEventListener("scroll", updatePosition);
