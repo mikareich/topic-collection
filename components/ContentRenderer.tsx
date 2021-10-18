@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactMarkdown from "react-markdown";
 import { SpecialComponents } from "react-markdown/lib/ast-to-react";
 import { NormalComponents } from "react-markdown/lib/complex-types";
@@ -20,38 +20,38 @@ function ContentRenderer({ content }: ContentRendererProps) {
   const components: Partial<NormalComponents & SpecialComponents> = {
     a: ({ children, href }) => <Link href={href!}>{children}</Link>,
     // @ts-ignore
-    h1: ({ children, id, ...props }: HeadingProps) => (
-      <h1 id={encodeURI(id)} {...props}>
+    h1: ({ children, id }: HeadingProps) => (
+      <h1 id={encodeURI(id)} className="pt-12">
         {children}
       </h1>
     ),
     // @ts-ignore
-    h2: ({ children, id, ...props }: HeadingProps) => (
-      <h2 id={encodeURI(id)} {...props}>
+    h2: ({ children, id }: HeadingProps) => (
+      <h2 id={encodeURI(id)} className="pt-12">
         {children}
       </h2>
     ),
     // @ts-ignore
-    h3: ({ children, id, ...props }: HeadingProps) => (
-      <h3 id={encodeURI(id)} {...props}>
+    h3: ({ children, id }: HeadingProps) => (
+      <h3 id={encodeURI(id)} className="pt-12">
         {children}
       </h3>
     ),
     // @ts-ignore
-    h4: ({ children, id, ...props }: HeadingProps) => (
-      <h4 id={encodeURI(id)} {...props}>
+    h4: ({ children, id }: HeadingProps) => (
+      <h4 id={encodeURI(id)} className="pt-12">
         {children}
       </h4>
     ),
     // @ts-ignore
-    h5: ({ children, id, ...props }: HeadingProps) => (
-      <h5 id={encodeURI(id)} {...props}>
+    h5: ({ children, id }: HeadingProps) => (
+      <h5 id={encodeURI(id)} className="pt-12">
         {children}
       </h5>
     ),
     // @ts-ignore
-    h6: ({ children, id, ...props }: HeadingProps) => (
-      <h6 id={encodeURI(id)} {...props}>
+    h6: ({ children, id }: HeadingProps) => (
+      <h6 id={encodeURI(id)} className="pt-12">
         {children}
       </h6>
     ),

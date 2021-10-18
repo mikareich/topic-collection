@@ -19,7 +19,7 @@ function Collection({ content, ...collection }: CollectionProps) {
     <>
       <ProgressBar />
       <div className="xl:p-12 lg:p-10 p-8 justify-center min-h-screen flex">
-        <div className="prose container lg:mr-10 break-words">
+        <div className="container lg:mr-10 prose-blue prose xs:prose-s break-words">
           <ContentRenderer content={content} />
         </div>
         <aside className="xl:w-64 lg:w-52 lg:block hidden relative">
@@ -32,7 +32,7 @@ function Collection({ content, ...collection }: CollectionProps) {
   );
 }
 
-export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+export function getStaticPaths(): GetStaticPathsResult {
   const collections = getCollections();
   const slugs = collections.map((collection) => collection.slug);
 
@@ -42,9 +42,9 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   };
 }
 
-export async function getStaticProps(
+export function getStaticProps(
   ctx: GetStaticPropsContext
-): Promise<GetStaticPropsResult<CollectionProps>> {
+): GetStaticPropsResult<CollectionProps> {
   const { slug } = ctx.params as { slug: string };
 
   const collection = getCollection(slug);
