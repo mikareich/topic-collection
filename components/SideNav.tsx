@@ -12,12 +12,12 @@ interface SideNavProps {
 function SideNav({ description, content }: SideNavProps) {
   return (
     <div className="text-sm flex flex-col h-screen -mt-24 pt-24">
-      <h2 className="uppercase font-semibold tracking-wide mb-2 mt-8">
+      <h2 className="uppercase font-semibold tracking-wide mb-2 mt-16 lg:mt-8">
         Beschreibung
       </h2>
       <p className="text-gray-500">{description}</p>
 
-      <h2 className="uppercase font-semibold tracking-wide mb-2 mt-8">
+      <h2 className="uppercase font-semibold tracking-wide mb-2 mt-16 lg:mt-8">
         Auf dieser Seite
       </h2>
 

@@ -11,3 +11,8 @@ export const colorState = atom<CollectionColor>({
   key: "color",
   default: "blue",
 });
+
+export const showDrawerState = atom<boolean>({
+  key: "showDrawer",
+  default: false,
+});

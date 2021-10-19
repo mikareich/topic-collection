@@ -3,7 +3,7 @@ title: Differnetialrechnung
 author: Mika Reich
 description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, sequi tempora ex
 date: 2020-05-06
-color: green
+color: indigo
 ---
 
 # Differentialrechnung

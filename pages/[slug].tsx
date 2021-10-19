@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 
 import ContentRenderer from "../components/ContentRenderer";
+import Drawer from "../components/Drawer";
 import ProgressBar from "../components/ProgressBar";
 import SideNav from "../components/SideNav";
 import { colorState } from "../utils/atoms";
@@ -19,19 +20,23 @@ import {
 function Collection({ content, color, author, description }: CollectionProps) {
   const setColor = useSetRecoilState(colorState);
 
-  useEffect(() => setColor(color), []);
+  useEffect(() => setColor(color), [color, setColor]);
 
   return (
     <>
       <ProgressBar />
       <div className="xl:p-12 lg:p-10 p-8 justify-center min-h-screen flex">
-        <div
-          className={`container lg:mr-10 prose-${color} prose xs:prose-s break-words`}
-        >
-          <ContentRenderer content={content} />
-          <div className="text-center text-gray-500 italic text-sm mt-1">
-            {author}
+        <div className="container lg:mr-10 max-w-prose">
+          <div
+            className={`prose-${color} prose xs:prose-s break-words mx-auto`}
+          >
+            <ContentRenderer content={content} />
+            <div className="text-center text-gray-500 italic text-sm mt-1">
+              {author}
+            </div>
           </div>
+
+          <Drawer content={content} description={description} />
         </div>
         <aside className="xl:w-64 lg:w-52 lg:block hidden relative">
           <div className="xl:w-64 lg:w-52 lg:block hidden fixed">

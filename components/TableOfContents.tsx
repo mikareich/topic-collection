@@ -43,7 +43,7 @@ function TableOfContents({ content }: TableOfContentsProps) {
         return (
           <li className="my-4" key={id}>
             <Link href={`#${id}`} active={isActive}>
-              <div className="flex">
+              <div className="flex w-min mx-auto lg:mx-0">
                 <ArrowRightIcon width={14} className="flex-shrink-0 mr-1" />
                 <span className="truncate">{title}</span>
               </div>
