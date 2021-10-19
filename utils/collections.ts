@@ -29,6 +29,7 @@ export interface Collection {
   date: string;
   color: CollectionColor;
   content: string;
+  lang: string;
 }
 
 const collectionDirectory = path.join(process.cwd(), "collections");
@@ -51,6 +52,7 @@ export function getCollection(slug: string): Collection {
     date: new Date(data.date).toLocaleDateString(),
     content,
     color: allColors.includes(data?.color) ? data.color : "blue",
+    lang: data.lang || "en",
   };
 }
 

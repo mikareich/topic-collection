@@ -17,7 +17,13 @@ import {
   getCollections,
 } from "../utils/collections";
 
-function Collection({ content, color, author, description }: CollectionProps) {
+function Collection({
+  content,
+  color,
+  author,
+  description,
+  lang,
+}: CollectionProps) {
   const setColor = useSetRecoilState(colorState);
 
   useEffect(() => setColor(color), [color, setColor]);
@@ -29,6 +35,7 @@ function Collection({ content, color, author, description }: CollectionProps) {
         <div className="container lg:mr-10 max-w-prose">
           <div
             className={`prose-${color} prose xs:prose-s break-words mx-auto`}
+            lang={lang}
           >
             <ContentRenderer content={content} />
             <div className="text-center text-gray-500 italic text-sm mt-1">
