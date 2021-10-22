@@ -2,6 +2,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import { SpecialComponents } from "react-markdown/lib/ast-to-react";
 import { NormalComponents } from "react-markdown/lib/complex-types";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import remarkSlug from "remark-slug";
 
@@ -33,6 +34,7 @@ function ContentRenderer({ content }: ContentRendererProps) {
     <ReactMarkdown
       components={components}
       remarkPlugins={[remarkGfm, remarkSlug]}
+      rehypePlugins={[rehypeRaw]}
     >
       {content}
     </ReactMarkdown>
