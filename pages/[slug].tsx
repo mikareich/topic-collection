@@ -23,6 +23,7 @@ function Collection({
   author,
   description,
   lang,
+  slug,
 }: CollectionProps) {
   const setColor = useSetRecoilState(colorState);
 
@@ -43,11 +44,11 @@ function Collection({
             </div>
           </div>
 
-          <Drawer content={content} description={description} />
+          <Drawer content={content} description={description} slug={slug} />
         </div>
         <aside className="xl:w-64 lg:w-52 lg:block hidden relative">
           <div className="xl:w-64 lg:w-52 lg:block hidden fixed">
-            <SideNav content={content} description={description} />
+            <SideNav content={content} description={description} slug={slug} />
           </div>
         </aside>
       </div>
