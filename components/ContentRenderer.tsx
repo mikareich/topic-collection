@@ -1,11 +1,15 @@
+import "katex/dist/katex.min.css"; // `rehype-katex` does not import the CSS for you
+
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { SpecialComponents } from "react-markdown/lib/ast-to-react";
 import { NormalComponents } from "react-markdown/lib/complex-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 import remarkSlug from "remark-slug";
 
 import Heading from "./Heading";
@@ -54,8 +58,8 @@ function ContentRenderer({ content }: ContentRendererProps) {
   return (
     <ReactMarkdown
       components={components}
-      remarkPlugins={[remarkGfm, remarkSlug]}
-      rehypePlugins={[rehypeRaw]}
+      remarkPlugins={[remarkGfm, remarkSlug, remarkMath]}
+      rehypePlugins={[rehypeRaw, rehypeKatex]}
     >
       {content}
     </ReactMarkdown>
