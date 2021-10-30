@@ -16,9 +16,13 @@ function Drawer({ description, content }: DrawerProps) {
   const variants: Variants = {
     show: {
       opacity: 1,
+      display: "block",
     },
     hide: {
       opacity: 0,
+      transitionEnd: {
+        display: "none",
+      },
     },
   };
 
