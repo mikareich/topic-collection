@@ -5,14 +5,19 @@ import Link from "./Link";
 import TableOfContents from "./TableOfContents";
 
 interface SideNavProps {
+  title: string;
   description: string;
   content: string;
   slug: string;
 }
 
-function SideNav({ description, content, slug }: SideNavProps) {
+function SideNav({ title, description, content, slug }: SideNavProps) {
   return (
     <div className="text-sm flex flex-col h-screen -mt-24 pt-24">
+      <h2 className="uppercase font-semibold tracking-wide mb-2 mt-16 lg:mt-8">
+        {title}
+      </h2>
+      <hr />
       <h2 className="uppercase font-semibold tracking-wide mb-2 mt-16 lg:mt-8">
         Beschreibung
       </h2>

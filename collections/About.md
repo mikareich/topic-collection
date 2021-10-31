@@ -1,5 +1,5 @@
 ---
-title: About
+title: Themensammlung
 author: Mika Reich
 description: Wie schreibe ich eine Themensammlung in Markdown und worauf muss ich achten?
 date: 2020-19-09

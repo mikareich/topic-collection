@@ -18,6 +18,7 @@ import {
 } from "../utils/collections";
 
 function Collection({
+  title,
   content,
   color,
   author,
@@ -44,11 +45,21 @@ function Collection({
             </div>
           </div>
 
-          <Drawer content={content} description={description} slug={slug} />
+          <Drawer
+            content={content}
+            description={description}
+            slug={slug}
+            title={title}
+          />
         </div>
         <aside className="xl:w-64 lg:w-52 lg:block hidden relative">
           <div className="xl:w-64 lg:w-52 lg:block hidden fixed">
-            <SideNav content={content} description={description} slug={slug} />
+            <SideNav
+              content={content}
+              description={description}
+              slug={slug}
+              title={title}
+            />
           </div>
         </aside>
       </div>
